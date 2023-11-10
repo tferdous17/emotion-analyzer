@@ -1,6 +1,4 @@
 # emotion-analyzer
 ## Tasnim Ferdous
-## Gagan Sapkotaa
-
-
-## Work Plz
+## Chris Maradiaga
+## Gagan Sapkota
