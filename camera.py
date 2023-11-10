@@ -11,7 +11,7 @@ body_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_fullbo
 
 while True:
     _, frame = cap.read() # read
-    gray = cv2.cvtColor(frame, cv2.COLOR_RGBA2GRAY) # give us a grayscale img
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGRA2GRAY) # give us a grayscale img
 
     # DISCLAIMER: this is a premade algo:
     #   -gray is the img, 1.3 is scale factor (accuracy of this pre-existing algo)
