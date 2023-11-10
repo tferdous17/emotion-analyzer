@@ -1,6 +1,4 @@
 import cv2
-import time
-import datetime
 
 cap = cv2.VideoCapture(1) # will capture the camera, 1 signifies its my macbook cam
 
@@ -9,6 +7,9 @@ cap = cv2.VideoCapture(1) # will capture the camera, 1 signifies its my macbook 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalFace_default.xml")
 body_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_fullbody.xml")
 
+
+hog = cv2.HOGDescriptor()
+hog.setSVMDetector(cv2.HOGDescriptor_DEFAULT_NLEVELS)
 while True:
     _, frame = cap.read() # read
     gray = cv2.cvtColor(frame, cv2.COLOR_BGRA2GRAY) # give us a grayscale img
