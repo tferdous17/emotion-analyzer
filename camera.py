@@ -17,10 +17,15 @@ while True:
     #   -gray is the img, 1.3 is scale factor (accuracy of this pre-existing algo)
     #   - dont worry about the num 5: its using the min neighbors algo
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+    bodies = body_cascade.detectMultiScale(gray, 1.3, 2)
 
     for (x, y, width, height) in faces:
         cv2.rectangle(frame, (x, y), (x + width, y + height), (255, 0, 0), 3)
-        # draw an image on frame, (x, y) = top left of rectangle, and then we have the bottom right
+
+
+    for x, y, width, height in bodies:
+        pad_w, pad_h = int(0.15*width), int(0.05*height)
+        cv2.rectangle(frame, (x + pad_w, y + pad_h), (x + width - pad_w, y + height - pad_h), (0,255,0), 1)
 
     cv2.imshow("Camera", frame) # show the camera
 
