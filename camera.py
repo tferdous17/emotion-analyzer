@@ -1,4 +1,5 @@
 import cv2
+import mediapipe as mp
 
 cap = cv2.VideoCapture(1) # will capture the camera, 1 signifies its my macbook cam
 
