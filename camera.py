@@ -8,7 +8,7 @@ mp_holistic = mp.solutions.holistic # premade thing for landmarks (hand, body, p
 mp_drawing.DrawingSpec(color=(0,0,255), thickness=2, circle_radius=2)
 
 # author: Tasnim Ferdous
-cap = cv2.VideoCapture(1) # cap means "capture", so the video we're capturing from the webcam
+cap = cv2.VideoCapture(0) # cap means "capture", so the video we're capturing from the webcam
 with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
     while cap.isOpened(): # while image is still being captured
         ret, frame = cap.read()
@@ -31,24 +31,28 @@ with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
                                   mp_drawing.DrawingSpec(color=(80, 22, 10), thickness=2, circle_radius=4),
                                   mp_drawing.DrawingSpec(color=(80, 44, 121), thickness=2, circle_radius=2)
                                   )
-
+        # author: Gagan Sapkota
         # draw landmarks for left hand
+        #draws purple line for differentiation
         mp_drawing.draw_landmarks(image, results.left_hand_landmarks, mp_holistic.HAND_CONNECTIONS,
                                   mp_drawing.DrawingSpec(color=(121, 22, 76), thickness=2, circle_radius=4),
                                   mp_drawing.DrawingSpec(color=(121, 44, 250), thickness=2, circle_radius=2)
                                   )
 
+        # drew print pink landmarks
         # draw landmarks for pose (full body)
         mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_holistic.POSE_CONNECTIONS,
                                   mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=2, circle_radius=4),
                                   mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2)
                                   )
 
-
+        #This line of code shows the feed
         cv2.imshow('Webcam Feed', image)
 
+        #Key q exists the webcam
         if cv2.waitKey(10) & 0xFF == ord('q'):
             break
 
+#This line of code closes the window
 cap.release()
 cv2.destroyAllWindows()
