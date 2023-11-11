@@ -1,7 +1,7 @@
 
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Monospaced', monospace;
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
@@ -16,10 +16,13 @@ body {
 
 h1 {
     color: #007bff;
-    text-align: center;
+    text-align: left;
 }
 
 p {
-    text-align: center;
+    text-align: left;
     font-size: 18px;
+}
+div a{
+    text-indent: 50px;
 }
