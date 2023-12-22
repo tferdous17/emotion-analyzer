@@ -8,7 +8,7 @@ mp_holistic = mp.solutions.holistic # premade thing for landmarks (hand, body, p
 mp_drawing.DrawingSpec(color=(0,0,255), thickness=2, circle_radius=2)
 
 # author: Tasnim Ferdous
-cap = cv2.VideoCapture(0) # cap means "capture", so the video we're capturing from the webcam
+cap = cv2.VideoCapture(1) # cap means "capture", so the video we're capturing from the webcam
 with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
     while cap.isOpened(): # while image is still being captured
         ret, frame = cap.read()
